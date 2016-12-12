@@ -18,7 +18,9 @@ public class FeedInvetorySystem {
 		
 		zmi.listInventoryPerZoo();
 		
-		
+				double totalNumFeedsPerDay = zmi.avgFeedPerDayByAnimalByZoo("Sf");
+				System.out.println("totalNumFeedsPerDay###"+totalNumFeedsPerDay);
+
 		
 	}
 	
