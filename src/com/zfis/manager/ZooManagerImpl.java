@@ -82,7 +82,26 @@ public class ZooManagerImpl {
 		
 		return (totalNumOfFeeds/animalCount);
 		
-		
 	}
 	
+	public int numOfFeedsPerAnimal(String city, String animalName){
+
+		int totalNumOfFeeds = 0;
+		for (Map.Entry<String, Zoo> entry : this.listOfZoos.entrySet()) {
+			
+			if(city.equalsIgnoreCase( entry.getKey() ) ){
+				Zoo zoo = (Zoo) entry.getValue();
+				int numOfAnimals = zoo.animals.size();
+				for(Animal animal : zoo.animals) {
+					
+					if(animalName.equalsIgnoreCase(animal.getName())) {
+						int numfeeds = animal.feedRequired * animal.interval;
+						totalNumOfFeeds = totalNumOfFeeds + numfeeds;
+					}
+				}				
+			}
+		}
+		return totalNumOfFeeds;
+	}
+
 }
