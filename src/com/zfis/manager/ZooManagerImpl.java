@@ -57,7 +57,32 @@ public class ZooManagerImpl {
 				System.out.println("Zoo City : " + zoo.city +" Animal Name : "+animal.name + " Animal Feed Required "+animal.feedRequired +" Animal Feed Intervals :"+animal.interval);
 			}
 		}
-	}
 		
+		
+	}
 
+	public double avgFeedPerDayByAnimalByZoo(String city){
+
+		int totalNumOfFeeds = 0;
+		int animalCount =0 ;
+		for (Map.Entry<String, Zoo> entry : this.listOfZoos.entrySet()) {
+			
+			if(city.equalsIgnoreCase( entry.getKey() ) ){
+				Zoo zoo = (Zoo) entry.getValue();
+				int numOfAnimals = zoo.animals.size();
+				
+				for(Animal animal : zoo.animals) {
+					int numfeeds = animal.feedRequired * animal.interval;
+					totalNumOfFeeds = totalNumOfFeeds + numfeeds;
+					animalCount++;
+				}
+				
+			}
+		}
+		
+		return (totalNumOfFeeds/animalCount);
+		
+		
+	}
+	
 }
