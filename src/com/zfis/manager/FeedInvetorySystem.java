@@ -20,6 +20,10 @@ public class FeedInvetorySystem {
 		
 				double totalNumFeedsPerDay = zmi.avgFeedPerDayByAnimalByZoo("Sf");
 				System.out.println("totalNumFeedsPerDay###"+totalNumFeedsPerDay);
+				
+				int totalNumFeedsPerAnimalPerDay = zmi.numOfFeedsPerAnimal("Sf","Lion");
+				System.out.println("totalNumFeedsPerDay###"+totalNumFeedsPerAnimalPerDay);
+				
 
 		
 	}
